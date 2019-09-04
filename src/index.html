@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome to Nashville</title>
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+
+</head>
+
+<body>
+
+    <!-- -->
+    <h1>Welcome to Nashville!</h1>
+
+    <section class="search_section">
+
+        <h2 class="search_item">Search for stuff to do today</h2>
+
+        <!-- parks input section -->
+        <fieldset class="search_item">
+            <label class="search_label">Parks by feature: </label>
+            <input class="search_input" id="parks_input" type="text" name="parks">
+        </fieldset>
+
+        <!-- restaurants input section -->
+        <fieldset class="search_item">
+                <label class="search_label">Restaurants by food type: </label>
+                <input class="search_input" id="restaurants_input" type="text" name="restaurants">
+            </fieldset>
+
+        <!-- meetups input section -->
+        <fieldset class="search_item">
+                <label class="search_label">Meetups by topic: </label>
+                <input class="search_input" id="meetups_input" type="text" name="meetups">
+            </fieldset>
+
+        <!-- concerts input section -->
+        <fieldset class="search_item">
+                <label class="search_label">Concerts by genre: </label>
+                <input class="search_input" id="concerts_input" type="text" name="concerts">
+        </fieldset>
+
+        <!-- Submit button section -->
+        <fieldset class="search-item">
+                <button class="search-input" id="search-button">Search</button>
+        </fieldset>
+
+    </section>
+
+    <section class="results_section">
+        <h2>Search results</h2>
+    </section>
+
+    <section class="itinerary_section">
+        <h2>My itinerary</h2>
+    </section>
+
+    <!-- -->
+    <script src="scripts/parks.js"></script>
+    <script src="scripts/restaurants.js"></script>
+    <script src="scripts/meetups.js"></script>
+    <script src="scripts/conserts.js"></script>
+    <script src="scripts/main.js"></script>
+
+</body>
+
+</html>
