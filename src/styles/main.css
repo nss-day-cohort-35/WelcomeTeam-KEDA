@@ -8,22 +8,29 @@
 
     border: 1px solid black;
     border-radius: .5em;
+    margin: .9em;
 
-    background-color: bisque;
+    background-color: lightgreen;
 }
 
 .search-item {
     border: 1px solid black;
     border-radius: .3em;
+    margin: .5em;
+    padding: .5em;
     background-color: lightsteelblue;
 }
 
 .results-section {
     border: 1px solid black;
+    border-radius: .5em;
+    margin: .9em;
     background-color: aqua
 }
 
 .itinerary-section {
     border: 1px solid black;
+    border-radius: .5em;
+    margin: .9em;
     background-color: azure;
 }
