@@ -22,25 +22,25 @@
         <!-- parks input section -->
         <fieldset class="search_item">
             <label class="search_label">Parks by feature: </label>
-            <input class="search_input" id="parks_input" type="text" name="parks">
+            <input class="search_input" id="parks_input" type="text" name="parks" value="parks by feature">
         </fieldset>
 
         <!-- restaurants input section -->
         <fieldset class="search_item">
                 <label class="search_label">Restaurants by food type: </label>
-                <input class="search_input" id="restaurants_input" type="text" name="restaurants">
+                <input class="search_input" id="restaurants_input" type="text" name="restaurants" value="restaurants by food type">
             </fieldset>
 
         <!-- meetups input section -->
         <fieldset class="search_item">
                 <label class="search_label">Meetups by topic: </label>
-                <input class="search_input" id="meetups_input" type="text" name="meetups">
+                <input class="search_input" id="meetups_input" type="text" name="meetups" value="meetups by topic">
             </fieldset>
 
         <!-- concerts input section -->
         <fieldset class="search_item">
                 <label class="search_label">Concerts by genre: </label>
-                <input class="search_input" id="concerts_input" type="text" name="concerts">
+                <input class="search_input" id="concerts_input" type="text" name="concerts" value="concerts by genre">
         </fieldset>
 
         <!-- Submit button section -->
@@ -52,13 +52,43 @@
 
     <section class="results-section">
         <h2>Search results</h2>
+
+        <h3>Parks</h3>
+        <div id="parkresults"></div>
+
+        <h3>Parks</h3>
+        <div id="restaurantresults"></div>
+
+        <h3>Parks</h3>
+        <div id="meetupresults"></div>
+
+        <h3>Parks</h3>
+        <div id="concertresults"></div>
+        
     </section>
 
     <section class="itinerary-section">
         <h2>My itinerary</h2>
+        <div class="inline">
+            <h3>Park: </h3>
+            <p id="pittinerary"></p>
+        </div>
+        <div class="inline">
+            <h3>Park: </h3>
+            <p id="rittinerary"></p>
+        </div>
+        <div class="inline">
+            <h3>Park: </h3>
+            <p id="mittinerary"></p>
+        </div>
+        <div class="inline">
+            <h3>Park: </h3>
+            <p id="cittinerary"></p>
+        </div>
     </section>
 
     <!-- -->
+    <script src="scripts/main-search.js"></script>
     <script src="scripts/park.js"></script>
     <script src="scripts/food.js"></script>
     <script src="scripts/meetup.js"></script>
