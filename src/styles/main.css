@@ -1,0 +1,29 @@
+/*
+//
+*/
+
+.search_section {
+    display: flex;
+    flex-flow: column;
+
+    border: 1px solid black;
+    border-radius: .5em;
+
+    background-color: bisque;
+}
+
+.search-item {
+    border: 1px solid black;
+    border-radius: .3em;
+    background-color: lightsteelblue;
+}
+
+.results-section {
+    border: 1px solid black;
+    background-color: aqua
+}
+
+.itinerary-section {
+    border: 1px solid black;
+    background-color: azure;
+}
