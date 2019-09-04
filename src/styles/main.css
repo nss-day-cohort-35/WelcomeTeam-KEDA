@@ -34,3 +34,13 @@
     margin: .9em;
     background-color: azure;
 }
+
+.inline {
+    display: flex;
+    flex-direction: row;
+}
+
+.styleasbutton {
+    width: 6em;
+    height: 6em;
+}
