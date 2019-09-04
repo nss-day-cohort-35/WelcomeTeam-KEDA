@@ -38,9 +38,14 @@
 .inline {
     display: flex;
     flex-direction: row;
+    align-content: 
 }
 
 .styleasbutton {
-    width: 6em;
-    height: 6em;
+    width: 2em;
+    height: 2em;
+}
+
+h3, p {
+    height: 2em;
 }
