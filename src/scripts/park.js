@@ -4,7 +4,7 @@
 parksearch = document.querySelector("#parkssearch").textContent; //Getting the search parameters
 
 
-
+getparkdata();
 
 
 
@@ -24,13 +24,13 @@ parksearch = document.querySelector("#parkssearch").textContent; //Getting the s
     }
 
 
-function updateparksearchresults(idata) {
+function updateparksearchresults(idata) { // works with the park api, so this is not universal. Uses the (letter)target(number) naming conventiion
 
     let parktargetinsert = document.querySelector("#parkresults");
-    //you can change this to the id of the container for park search results
+    //you can change this to the id of the container for park search results, please still keep it outputing to the park results section
 
     parktargetinsert.innerHTML = ``;
-    //clear results
+    //clear results in park section to make room for the loop inserting the new ones
 
     for (let i = 0; i < idata.length; i++) { // loop through all results, creating html framework as we go
         parktargetinsert.innerHTML += `
@@ -43,40 +43,18 @@ function updateparksearchresults(idata) {
         
         `; // this adds unique ids to "pbuttons" and "ptargets" so that they can be easily targeted using for loops
     }
-    addparkbuttonlisteners(); //move on to making functionality
+
+    addparkbuttonlisteners("p"); //move on to making functionality
 
 
 }
 
 
-function addbuttonlisteners() { // add button functionality modularly
-
-    let buttonlist = document.querySelectorAll(".checkbutton");
-    // you can change this id to fit if you rename the button identifier
-
-
-
-    for (let i = 0; i < buttonlist.length; i++) { // loop through all gathered buttons
-        
-        buttonlist[i].addEventListener("click", pbuttonfunction => { // add event listener
-            updateittinerary(itinerarypark,document.querySelector("#ptarget" + ${i}).innerHTML);
-            // call another function so we don't have 1000 search results with 20 lines of code imbeded each
-        });
-        
-        ;
-}
-
-
-
-function updateittinerary(catagory, newtext) { // To update the itinerary, can be used for all catagories
-
-
-document.querySelector("#" + ${catagory}).innerHTML = newtext; //selects the id of whatever catagory is, and puts whatever newtext is inside of that.
 
 
 
 
 
 
-}
+
 
