@@ -1,22 +1,16 @@
 
 
 
-parksearch = document.querySelector("#parkssearch").textContent; //Getting the search parameters
 
-
-getparkdata();
-
-
-
-
-    getparkdata = function() { //get data
+    getParkData = function(query) { //get data
         
     
-       fetch("https://data.nashville.gov/resource/74d7-b74t.json?notes='${parksearch}'") //get data based of off search, aka parksearch bar's text content
+       fetch(`https://data.nashville.gov/resource/74d7-b74t.json?notes=${query}`) //get data based of off search, aka parksearch bar's text content
        .then(entrieslist => entrieslist.json()) // get and parse data
        .then(parsedentries =>{
 
-           updatesearchresults(parsedentries); // send data off
+           upDateSearchResults(parsedentries); // send data off
+
        });
        
       
@@ -24,9 +18,9 @@ getparkdata();
     }
 
 
-function updateparksearchresults(idata) { // works with the park api, so this is not universal. Uses the (letter)target(number) naming conventiion
+function updateParkSearchResults(idata) { // works with the park api, so this is not universal. Uses the (letter)target(number) naming conventiion
 
-    let parktargetinsert = document.querySelector("#parkresults");
+    let parktargetinsert = document.querySelector("#parkresults"); // the park results container
     //you can change this to the id of the container for park search results, please still keep it outputing to the park results section
 
     parktargetinsert.innerHTML = ``;
@@ -35,16 +29,17 @@ function updateparksearchresults(idata) { // works with the park api, so this is
     for (let i = 0; i < idata.length; i++) { // loop through all results, creating html framework as we go
         parktargetinsert.innerHTML += `
         <div class="inline">
-        <button class="checkbutton" id = "pbutton${i}"></button>
+        <button class="pcheckbutton styleasbutton" id = "pbutton${i}"></button>
         <p id = "ptarget${i}">${idata[i].park_name}</p>
         </div>
         
         
-        
         `; // this adds unique ids to "pbuttons" and "ptargets" so that they can be easily targeted using for loops
+        //make sure you have your unique letter in fornt of "button", "checkbutton", and "target"
+        // and be sure to get the name of what you want to display into and put it into the p tag.
     }
 
-    addparkbuttonlisteners("p"); //move on to making functionality
+    addButtonListeners("p"); //move on to making functionality, change the letter to your unique letter, the first letter of your catagory
 
 
 }
