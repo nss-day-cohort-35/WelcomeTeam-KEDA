@@ -2,18 +2,35 @@
 
 
 
-    getParkData = function() { //get data
+    getParkData = function(query) { //get data
         
     
-       fetch(`https://data.nashville.gov/resource/74d7-b74t.json`) //get data based of off search, aka parksearch bar's text content
-       .then(entrieslist => entrieslist.json()) // get and parse data
-       .then(parsedentries =>{
+
+        if (query === "") {
+            updateParkSearchResults([]);
+       
+         } else if (query === "all" || query === "park" || query === "parks") {
+
+            searchInputs[0].query = "";
+
+            fetch(`https://data.nashville.gov/resource/74d7-b74t.json`) //get data based of off search, aka parksearch bar's text content
+            .then(entrieslist => entrieslist.json()) // get and parse data
+            .then(parsedentries =>{
+
+            updateParkSearchResults(parsedentries); // send data off
+            });
+
+         } else {
+
+            fetch(`https://data.nashville.gov/resource/74d7-b74t.json`) //get data based of off search, aka parksearch bar's text content
+            .then(entrieslist => entrieslist.json()) // get and parse data
+            .then(parsedentries =>{
 
             updateParkSearchResults(parsedentries); // send data off
 
-       });
-       
-      
+            });
+
+         }
        
     }
 

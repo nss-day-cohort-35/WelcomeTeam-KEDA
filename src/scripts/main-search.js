@@ -24,8 +24,8 @@ document.querySelector('#search-button').addEventListener( "click", event => {
         }
     }
     //add the start of your fucntion chain here!
-    getParkData() // im passing the value rathing than referencing it directly
-
+    getParkData(searchInputs[0].query); // im passing the value rathing than referencing it directly
+    
 
 // test
 
