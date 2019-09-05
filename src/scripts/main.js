@@ -45,4 +45,5 @@ function updateIttinerary(catagory, newtext) { // To update the itinerary, can b
 //make sure you give the final output feilds an id of "(your unqique letter here)ittinerary" 
 document.querySelector(`#${catagory}ittinerary`).innerHTML = newtext; //selects the id of whatever catagory is, and puts whatever newtext is inside of that.
 
+
 }

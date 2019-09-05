@@ -10,7 +10,7 @@
     border-radius: .5em;
     margin: .9em;
 
-    background-color: lightgreen;
+    background-color: rgb(180, 243, 180);
 }
 
 .search-item {
@@ -25,7 +25,7 @@
     border: 1px solid black;
     border-radius: .5em;
     margin: .9em;
-    background-color: aqua
+    background-color: rgb(177, 255, 255)
 }
 
 .itinerary-section {

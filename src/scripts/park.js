@@ -9,7 +9,7 @@
        .then(entrieslist => entrieslist.json()) // get and parse data
        .then(parsedentries =>{
 
-           upDateSearchResults(parsedentries); // send data off
+           updateParkSearchResults(parsedentries); // send data off
 
        });
        
@@ -22,7 +22,7 @@ function updateParkSearchResults(idata) { // works with the park api, so this is
 
     let parktargetinsert = document.querySelector("#parkresults"); // the park results container
     //you can change this to the id of the container for park search results, please still keep it outputing to the park results section
-
+    
     parktargetinsert.innerHTML = ``;
     //clear results in park section to make room for the loop inserting the new ones
 
