@@ -24,7 +24,27 @@ document.querySelector('#search-button').addEventListener( "click", event => {
         }
     }
     //add the start of your fucntion chain here!
-    getParkData(searchInputs[0].query); // im passing the value rathing than referencing it directly
+    //getParkData(searchInputs[0].query); // im passing the value rathing than referencing it directly
+
+    if( searchInputs[1].query != '' ) {
+        const cuisineNumber = getCuisineNumber( searchInputs[1].query )
+        .then( cuisineNumber => {
+            let restaurantList = [];
+            if( cuisineNumber != -1 ) {
+                console.log( "input cuisine number: ", cuisineNumber );
+                restaurantList = getRestaurantData( cuisineNumber );
+            } else {
+                console.log( searchInputs[1].query, " cuisine is not presented in Nashville restaurants." );
+            }
+            return restaurantList;
+        })
+        .then( restaurantList => {
+            console.log( "restaurantList: ", restaurantList );
+            if( restaurantList.length ) {
+                buildDomSection( restaurantList );
+            }
+        })           
+    }
     
 
 // test
