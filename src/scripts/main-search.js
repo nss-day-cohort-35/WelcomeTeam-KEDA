@@ -46,9 +46,10 @@ document.querySelector('#search-button').addEventListener( "click", event => {
             }
         })           
     }
-    
+   
+    concertAPI.getConcertData()
 
-// test
+    
 
 
 })
