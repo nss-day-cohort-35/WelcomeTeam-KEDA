@@ -25,6 +25,7 @@ document.querySelector('#search-button').addEventListener( "click", event => {
     }
     //add the start of your fucntion chain here!
     getParkData(searchInputs[0].query); // im passing the value rathing than referencing it directly
+    getMeetupData(searchInputs[2].query);
 
     if( searchInputs[1].query != '' ) {
         const cuisineNumber = getCuisineNumber( searchInputs[1].query )
