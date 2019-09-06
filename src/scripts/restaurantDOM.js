@@ -5,13 +5,33 @@
 //
 function makeDomElement( restaurant, index ) {
     return `
-        <p>
-        <button class="rcheckbutton styleasbutton" id = "rbutton${index}"></button>
-        <span class="restaurant_name" id = "rtarget${index}">${restaurant.name}</span> (Address: ${restaurant.address}) <a href="${restaurant.url}">Web</a>
+        <p class="restaurant_name">        
+        <span id = "rtarget${index}">${restaurant.name}</span> (Address: ${restaurant.address}) <a href="${restaurant.url}">Web</a>
         </p>
     `
 }
+//<button class="rcheckbutton styleasbutton" id = "rbutton${index}"></button>
 
+//
+function recordListener() {
+
+    recordList = document.querySelectorAll( '.restaurant_name' );
+
+    for( let i = 0; i < recordList.length; i++ ){
+        recordList[i].addEventListener( "mouseover", event => {
+            event.target.className = "restaurant_name_over";
+        })
+        recordList[i].addEventListener( "mouseout", event => {
+            event.target.className = "restaurant_name";
+        })
+        recordList[i].addEventListener( "click", event => {
+            //event.target.className = "";
+            document.querySelector(`#rittinerary`).innerHTML = event.target.textContent;
+        })
+    }        
+}
+
+//
 function buildDomSection( restaurantSearshResult ) {
     const restaurantsSection = document.querySelector('#restaurantresults');
     restaurantsSection.innerHTML = '';
@@ -24,5 +44,6 @@ function buildDomSection( restaurantSearshResult ) {
         restaurantsSection.appendChild( restaurantElement );
     }
 
-    addButtonListeners("r");
+    //addButtonListeners("r");
+    recordListener();
 }
