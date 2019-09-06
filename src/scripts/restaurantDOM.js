@@ -19,13 +19,23 @@ function recordListener() {
 
     for( let i = 0; i < recordList.length; i++ ){
         recordList[i].addEventListener( "mouseover", event => {
-            event.target.className = "restaurant_name_over";
+            if( event.target.className != "restaurant_name_chosen" ){
+                event.target.className = "restaurant_name_over";
+            }
         })
         recordList[i].addEventListener( "mouseout", event => {
-            event.target.className = "restaurant_name";
+            if( event.target.className != "restaurant_name_chosen" ){
+                event.target.className = "restaurant_name";
+            }
         })
         recordList[i].addEventListener( "click", event => {
-            //event.target.className = "";
+            chosenRecord = document.querySelectorAll( '.restaurant_name_chosen' );
+            if( chosenRecord.length ){
+                for( let i = 0; i < chosenRecord.length; i++ ){
+                    chosenRecord[i].className = "restaurant_name";
+                }
+            }
+            event.target.className = "restaurant_name_chosen";
             document.querySelector(`#rittinerary`).innerHTML = event.target.textContent;
         })
     }        
