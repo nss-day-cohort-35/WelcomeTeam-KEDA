@@ -1,13 +1,18 @@
-
+let concertTargetInsert = document.querySelector("#concertresults");
 
 const concertAPI = {
     getConcertData (country) {
-      return fetch(`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&dmaId=343&apikey=b2mgLaafqqPj3qedr8Zo6jklYkDTEYkb&classificationName=${country}`)
+      let concertInput = document.querySelector('#concerts_input').value
+       if (concertInput === ''){
+           concertTargetInsert.innerHTML = 'No search Requested'
+       } else {
+      return fetch(`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&keyword=${concertInput}&dmaId=343&apikey=b2mgLaafqqPj3qedr8Zo6jklYkDTEYkb&classificationName=${country}`)
         .then(res => res.json())
         .then(parsedMain =>  {
            updateConcertResults(parsedMain)
          })
-    }
+        }
+    } 
 }
 
  function updateConcertResults(concert) { // works with the park api, so this is not universal. Uses the (letter)target(number) naming conventiion
@@ -22,13 +27,20 @@ const concertAPI = {
       let concert = concertEvent[i];
       console.log(concert);
       
-      if (searchInputs[3].query.includes('all')) {
-        console.log(concert); 
-      } else  {
-          return "No Search Requested" // need to look into?
+      concertTargetInsert.innerHTML += `
+        <div class="concertdiv">
+          <button class="ccheckbutton stylesasbutton" id="cbutton${i}"></button>
+          <p id ="ctarget${i}">${concert.name}</p>
+          <p>   
+            ${concert.dates.start.localDate}
+            ${concert.dates.start.localTime}
+            ${concert.url}
+          </p>
+        </div>`
+      
       } 
-       
-       
+      addButtonListeners("c"); 
+  }       
        
        /*
        else if (concert === searchInputs[3].query.includes(concert.name)) {
@@ -82,21 +94,10 @@ const concertAPI = {
         }
       }
     */
-    concertTargetInsert.innerHTML += `
-      <div class="concertdiv">
-      <button class="ccheckbutton stylesasbutton" id="cbutton${i}"></button>
-      <p id ="ctarget${i}">${concert.name}</p>
-        <p>   
-          ${concert.dates.start.localDate}
-          ${concert.dates.start.localTime}
-          ${concert.url}
-        </p>
-       </div>`
-    }
-    addButtonListeners("c");
+   
     
   
-  } 
+   
  
 
  

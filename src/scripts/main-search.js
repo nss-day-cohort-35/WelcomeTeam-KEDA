@@ -47,7 +47,7 @@ document.querySelector('#search-button').addEventListener( "click", event => {
         })           
     }
    
-    concertAPI.getConcertData(searchInputs[3].query)
+    concertAPI.getConcertData()
 
     
 
