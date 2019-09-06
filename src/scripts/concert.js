@@ -25,7 +25,7 @@ const concertAPI = {
       if (searchInputs[3].query.includes('all')) {
         console.log(concert); 
       } else  {
-          return "No Search Requested"
+          return "No Search Requested" // need to look into?
       } 
        
        
