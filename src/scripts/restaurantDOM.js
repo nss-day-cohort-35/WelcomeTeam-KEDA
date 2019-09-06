@@ -6,7 +6,7 @@
 function makeDomElement( restaurant, index ) {
     return `
         <p class="restaurant_name">        
-        <span id = "rtarget${index}">${restaurant.name}</span> (Address: ${restaurant.address}) <a href="${restaurant.url}">Web</a>
+        <span id="rtarget${index}">${restaurant.name}</span> (Address: ${restaurant.address}) <a href="${restaurant.url}">Web</a>
         </p>
     `
 }
@@ -17,15 +17,19 @@ function recordListener() {
 
     recordList = document.querySelectorAll( '.restaurant_name' );
 
+    console.log( "recordList: ",recordList );
+
     for( let i = 0; i < recordList.length; i++ ){
+        console.log( "tagName: ", recordList[i].tagName );
+
         recordList[i].addEventListener( "mouseover", event => {
             if( event.target.className != "restaurant_name_chosen" ){
-                event.target.className = "restaurant_name_over";
+                if( event.target.tagName === 'P' ){ event.target.className = "restaurant_name_over"; } 
             }
         })
         recordList[i].addEventListener( "mouseout", event => {
             if( event.target.className != "restaurant_name_chosen" ){
-                event.target.className = "restaurant_name";
+                if( event.target.tagName === 'P' ){ event.target.className = "restaurant_name"; }
             }
         })
         recordList[i].addEventListener( "click", event => {
@@ -35,7 +39,7 @@ function recordListener() {
                     chosenRecord[i].className = "restaurant_name";
                 }
             }
-            event.target.className = "restaurant_name_chosen";
+            if( event.target.tagName === 'P' ){ event.target.className = "restaurant_name_chosen"; }
             document.querySelector(`#rittinerary`).innerHTML = event.target.textContent;
         })
     }        
