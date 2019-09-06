@@ -83,6 +83,21 @@ h3, p, strong {
    flex-wrap: wrap;
    flex-direction: column;
 }
+.restaurant_name_over {
+    font-weight: bold;
+    color: red;
+    border: 1px dashed green;
+    border-radius: .4em;
+    background-color: pink;
+}
+
+.restaurant_name_chosen {
+    border: 1px dashed green;
+    border-radius: .4em;
+    background-color: blueviolet;
+}
+
+
 .minline {
     display: flex;
     flex-direction: row;
