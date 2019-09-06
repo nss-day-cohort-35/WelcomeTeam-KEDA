@@ -17,10 +17,10 @@ function recordListener() {
 
     recordList = document.querySelectorAll( '.restaurant_name' );
 
-    console.log( "recordList: ",recordList );
+    //console.log( "recordList: ",recordList );
 
     for( let i = 0; i < recordList.length; i++ ){
-        console.log( "tagName: ", recordList[i].tagName );
+        //console.log( "tagName: ", recordList[i].tagName );
 
         recordList[i].addEventListener( "mouseover", event => {
             if( event.target.className != "restaurant_name_chosen" ){
@@ -40,7 +40,9 @@ function recordListener() {
                 }
             }
             if( event.target.tagName === 'P' ){ event.target.className = "restaurant_name_chosen"; }
-            document.querySelector(`#rittinerary`).innerHTML = event.target.textContent;
+
+            const restaurantName = event.target.getElementsByTagName( 'SPAN' );
+            document.querySelector(`#rittinerary`).innerHTML = restaurantName[0].innerHTML;
         })
     }        
 }
