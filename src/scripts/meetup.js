@@ -8,7 +8,7 @@ getMeetupData = function(query) { //get data
 
     if (query === "") {
         updateMeetupSearchResults([]);
-        console.log("nosearch");
+        
    
      } else if (query === "all" || query === "park" || query === "parks") {
 
@@ -21,9 +21,9 @@ getMeetupData = function(query) { //get data
           })//get data based of off search, aka parksearch bar's text content
          .then(entrieslist => entrieslist.json()) // get and parse data
          .then(parsedentries =>{
-            console.log(parsedentries);
+           
             updateMeetupSearchResults(parsedentries);
-            console.log(parsedentries);
+            
         
         
          });
@@ -37,9 +37,9 @@ getMeetupData = function(query) { //get data
     })//get data based of off search, aka parksearch bar's text content
     .then(entrieslist => entrieslist.json()) // get and parse data
     .then(parsedentries =>{
-        console.log(parsedentries);
+        
         updateMeetupSearchResults(parsedentries);
-        console.log(parsedentries);
+        
 
 
  });
@@ -72,7 +72,7 @@ function updateMeetupSearchResults(idata) { // works with the park api, so this 
         </div>
         `
 
-
+    if (typeof idata.events != "undefined") {
     for (let i = 1; i < idata.events.length; i++) { // loop through all results, creating html framework as we go
         meetuptargetinsert.innerHTML += `
         <div class="minline">
@@ -94,7 +94,7 @@ function updateMeetupSearchResults(idata) { // works with the park api, so this 
 
 }
 
-
+}
 
 
 
