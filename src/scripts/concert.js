@@ -39,10 +39,9 @@ const concertAPI = {
     concertTargetInsert.innerHTML += `
       <div class="concertdiv">
       <button class="ccheckbutton stylesasbutton" id="cbutton${i}"></button>
-      <p id ="ctarget${i}">${concert.name} 
-                           ${concert.dates.start.localDate}
-                           ${concert.dates.start.localTime}
-                           ${concert.url}
+      <p id ="ctarget${i}">${concert.name}${concert.dates.start.localDate}
+         ${concert.dates.start.localTime}
+         ${concert.url}
       </p>
        </div>`
     }
