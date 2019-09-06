@@ -65,7 +65,7 @@ function updateParkSearchResults(idata) { // works with the park api, so this is
 
     for (let i = 0; i < workinglist.length; i++) { // loop through all results, creating html framework as we go
         parktargetinsert.innerHTML += `
-        <div class="inline">
+        <div class="pinline">
         <button class="pcheckbutton styleasbutton" id = "pbutton${i}"></button>
         <p id = "ptarget${i}">${workinglist[i].park_name}</p>
         </div>
@@ -74,8 +74,7 @@ function updateParkSearchResults(idata) { // works with the park api, so this is
         `; // this adds unique ids to "pbuttons" and "ptargets" so that they can be easily targeted using for loops
         //make sure you have your unique letter in fornt of "button", "checkbutton", and "target"
         // and be sure to get the name of what you want to display into and put it into the p tag.
-        console.log(`ptarget${i}`);
-        console.log(`looped`);
+      
     }
 
     addButtonListeners("p"); //move on to making functionality, change the letter to your unique letter, the first letter of your catagory
