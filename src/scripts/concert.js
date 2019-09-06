@@ -17,21 +17,67 @@ const concertAPI = {
     //you can change this to the id of the container for park search results, please still keep it outputing to the park results section
     
     let concertEvent = concert._embedded.events; 
-    console.log(concertEvent)
 
     for (let i = 0; i < concertEvent.length; i++) {
       let concert = concertEvent[i];
       console.log(concert);
+      
+      if (searchInputs[3].query.includes('all')) {
+        console.log(concert); 
+      } else  {
+          return "No Search Requested"
+      } 
+       
+       
+       
+       /*
+       else if (concert === searchInputs[3].query.includes(concert.name)) {
+          concertTargetInsert.innerHTML += `
+            <div class="concertdiv">
+               <button class="ccheckbutton stylesasbutton" id="cbutton${i}"></button>
+               <p id ="ctarget${i}">${concert.name}</p>
+               <p>   
+                 ${concert.dates.start.localDate}
+                 ${concert.dates.start.localTime}
+                 ${concert.url}
+               </p>
+            </div>`
+       } else if (concert === searchInputs[3].query.includes(concert.dates.start.localDate)) {
+          concertTargetInsert.innerHTML += `
+            <div class="concertdiv">
+              <button class="ccheckbutton stylesasbutton" id="cbutton${i}"></button>
+              <p id ="ctarget${i}">${concert.name}</p>
+              <p>   
+               ${concert.dates.start.localDate}
+               ${concert.dates.start.localTime}
+               ${concert.url}
+             </p>
+            </div>`
+       } else {
+        concertTargetInsert.innerHTML += `
+      <div class="concertdiv">
+      <button class="ccheckbutton stylesasbutton" id="cbutton${i}"></button>
+      <p id ="ctarget${i}">${concert.name}</p>
+        <p>   
+          ${concert.dates.start.localDate}
+          ${concert.dates.start.localTime}
+          ${concert.url}
+        </p>
+       </div>`
+
+       }
+      
+
      /*
       if (searchInputs[3].query === str.includes(concert.name)) {
-                   
+                   return true
         } else if (searchInputs[3].query === str.includes(concert.dates.start.localDate) {
           
         } else if (searchInputs[3].query === str.includes(concert.dates.start.localTime) {
 
         } else if (searchInputs[3].query === str.includes(concert.url) {
       
-        } else {
+        } else if () {
           return 'Does not match search results';
         }
       }
