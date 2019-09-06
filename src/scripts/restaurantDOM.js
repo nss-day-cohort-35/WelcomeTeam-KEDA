@@ -14,6 +14,7 @@ function makeDomElement( restaurant, index ) {
 
 function buildDomSection( restaurantSearshResult ) {
     const restaurantsSection = document.querySelector('#restaurantresults');
+    restaurantsSection.innerHTML = '';
 
     for( let i = 0; i < restaurantSearshResult.length; i++ ) {
 

@@ -28,7 +28,8 @@ const APIr = {
 function getRestaurantData( cuisineNumber ) {
 
     const zomatoApiKey = "fab738084a47c48fd99c4c3f0e29b9c8";
-    const queryUrl = `https://developers.zomato.com/api/v2.1/search?city_id=1138&cuisine=${cuisineNumber}&apikey=${zomatoApiKey}`;
+    //const queryUrl = `https://developers.zomato.com/api/v2.1/search?city_id=1138&cuisine=${cuisineNumber}&apikey=${zomatoApiKey}`;
+    const queryUrl = `https://developers.zomato.com/api/v2.1/search?entity_id=1138&entity_type=city&cuisines=${cuisineNumber}&apikey=${zomatoApiKey}`
 
     return APIr.zomatoRestaurantData( queryUrl );
 }
