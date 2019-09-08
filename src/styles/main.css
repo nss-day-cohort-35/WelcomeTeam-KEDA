@@ -2,6 +2,18 @@
 //
 */
 
+
+/* Carousel Styling */
+
+
+
+/* Search Section Styling*/
+
+.search_flex_container {
+    display: flex;
+    flex-flow: row wrap;
+}
+
 .search_section {
     display: flex;
     flex-flow: column;
