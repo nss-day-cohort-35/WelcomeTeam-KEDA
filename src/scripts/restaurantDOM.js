@@ -16,6 +16,8 @@ function makeDomElement( restaurant, index ) {
 function recordListener( section,letter ) {
 
     recordList = document.querySelectorAll( `.${section}` );
+    console.log("RecordListener:");
+    console.log(recordList);
 
     for( let i = 0; i < recordList.length; i++ ){
 
@@ -39,6 +41,9 @@ function recordListener( section,letter ) {
             if( event.target.tagName === 'P' ){ event.target.className = `${section}_chosen`; }
 
             const restaurantName = event.target.getElementsByTagName( 'SPAN' );
+
+            console.log(restaurantName);
+
             document.querySelector(`#${letter}ittinerary`).innerHTML = restaurantName[0].innerHTML;
         })
     }        

@@ -9,7 +9,7 @@ const concertAPI = {
       return fetch(`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&keyword=${concertInput}&dmaId=343&apikey=b2mgLaafqqPj3qedr8Zo6jklYkDTEYkb&classificationName=${country}`)
         .then(res => res.json())
         .then(parsedMain =>  {
-           updateConcertResults(parsedMain)
+           //updateConcertResults(parsedMain)
          })
         }
     } 
