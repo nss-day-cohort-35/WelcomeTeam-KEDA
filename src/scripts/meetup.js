@@ -68,7 +68,6 @@ function updateMeetupSearchResults(idata) { // works with the park api, so this 
         <div class="inline">
         <button class="mcheckbutton styleasbutton" id = "mbutton0"></button>
         <p id = "mtarget0">No Meetup</p>
-        
         </div>
         `
 
