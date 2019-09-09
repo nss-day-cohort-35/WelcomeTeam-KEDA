@@ -117,7 +117,6 @@ input[type=text]:focus {
     flex-direction: row;
     align-items: center;
     height: 2.5em;
-    width: 20em;
     padding: 0.5em;
 }
 
@@ -141,6 +140,12 @@ strong {
     flex-direction: row;
 }
 
+h3,
+p,
+strong {
+    padding: 0.5em;
+}
+
 .searchcontainer {
     display: flex;
     /*flex-wrap: wrap;
@@ -148,8 +153,11 @@ strong {
     flex-flow: column;
 }
 
-.restaurant_name {
+.restaurant_name,
+.meetup_name,
+.park_name {
     font-weight: bold;
+    width: 100%;
 }
 
 
@@ -162,31 +170,38 @@ strong {
 }
 
 .restaurant_name_over {
-    font-weight: bold;
-    color: red;
-    border: 1px dashed green;
-    border-radius: .4em;
-    background-color: pink;
-}
-
-.restaurant_name_chosen {
-    border: 1px dashed green;
-    border-radius: .4em;
-    background-color: blueviolet;
-}
-
-.minline {
-    display: flex;
-    flex-direction: row;
-    padding: 0.5em;
-    align-items: center;
-}
-
-
-/*
+    .restaurant_name_over,
+    .meetup_name_over,
+    .park_name_over {
+        font-weight: bold;
+        color: red;
+        border: 1px dashed green;
+        border-radius: .4em;
+        background-color: pink;
+    }
+    .restaurant_name_chosen,
+    .meetup_name_chosen,
+    .park_name_chosen {
+        border: 1px dashed green;
+        border-radius: .4em;
+        background-color: blueviolet;
+    }
+    .minline {
+        display: flex;
+        flex-direction: row;
+        padding: 0.5em;
+        align-items: center;
+    }
+    /*
 .inline {
     display: flex;
     flex-direction: column;
     padding: 0.5em;
     align-items: center;
 } */
+}
+
+#save-button {
+    padding: 1em;
+    margin: 1em;
+}

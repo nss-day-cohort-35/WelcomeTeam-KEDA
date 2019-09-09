@@ -66,14 +66,24 @@ function updateParkSearchResults(idata) { // works with the park api, so this is
         <p id = "ptarget${i}">${workinglist[i].park_name}</p>
         </div>
         
+        <p class="park_name">
+        <span id = "ptarget${i}">${workinglist[i].park_name}</span>
+        </p>
         
         `; // this adds unique ids to "pbuttons" and "ptargets" so that they can be easily targeted using for loops
         //make sure you have your unique letter in fornt of "button", "checkbutton", and "target"
         // and be sure to get the name of what you want to display into and put it into the p tag.
 
+
+
+
+        `; // this adds unique ids to "ptargets" so that they can be easily targeted using for loops
+        //make sure you have your unique letter in fornt of "target"
+        // and be sure to get the name of what you want to display into and put it into the span tag.
+      
     }
 
-    addButtonListeners("p"); //move on to making functionality, change the letter to your unique letter, the first letter of your catagory
+    recordListener("park_name","p"); 
 
 
 }
