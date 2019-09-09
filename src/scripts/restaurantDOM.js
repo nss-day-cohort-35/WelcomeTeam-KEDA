@@ -17,10 +17,7 @@ function recordListener() {
 
     recordList = document.querySelectorAll( '.restaurant_name' );
 
-    //console.log( "recordList: ",recordList );
-
     for( let i = 0; i < recordList.length; i++ ){
-        //console.log( "tagName: ", recordList[i].tagName );
 
         recordList[i].addEventListener( "mouseover", event => {
             if( event.target.className != "restaurant_name_chosen" ){
