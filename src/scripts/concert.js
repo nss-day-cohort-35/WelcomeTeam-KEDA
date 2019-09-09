@@ -1,34 +1,34 @@
 let concertTargetInsert = document.querySelector("#concertresults");
 
 const concertAPI = {
-    getConcertData (country) {
-      let concertInput = document.querySelector('#concerts_input').value
-       if (concertInput === ''){
-           concertTargetInsert.innerHTML = 'No search Requested'
-       } else {
-      return fetch(`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&keyword=${concertInput}&dmaId=343&apikey=b2mgLaafqqPj3qedr8Zo6jklYkDTEYkb&classificationName=${country}`)
-        .then(res => res.json())
-        .then(parsedMain =>  {
-           //updateConcertResults(parsedMain)
-         })
+    getConcertData(country) {
+        let concertInput = document.querySelector('#concerts_input').value
+        if (concertInput === '' || concertInput === 'concerts by genre') {
+            concertTargetInsert.innerHTML = 'No search Requested'
+        } else {
+            return fetch(`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&keyword=${concertInput}&dmaId=343&apikey=b2mgLaafqqPj3qedr8Zo6jklYkDTEYkb&classificationName=${country}`)
+                .then(res => res.json())
+                .then(parsedMain => {
+                    updateConcertResults(parsedMain)
+                })
         }
-    } 
+    }
 }
 
- function updateConcertResults(concert) { // works with the park api, so this is not universal. Uses the (letter)target(number) naming conventiion
-    
-  let concertTargetInsert = document.querySelector("#concertresults"); // the park results container
+function updateConcertResults(concert) { // works with the park api, so this is not universal. Uses the (letter)target(number) naming conventiion
+
+    let concertTargetInsert = document.querySelector("#concertresults"); // the park results container
     concertTargetInsert.innerHTML = '';
     //you can change this to the id of the container for park search results, please still keep it outputing to the park results section
-    
-    let concertEvent = concert._embedded.events; 
+
+    let concertEvent = concert._embedded.events;
 
     for (let i = 0; i < concertEvent.length; i++) {
-      let concert = concertEvent[i];
-      console.log(concert);
-      
-      concertTargetInsert.innerHTML += `
-        <div class="concertdiv">
+        let concert = concertEvent[i];
+        console.log(concert);
+
+        concertTargetInsert.innerHTML += `
+        <div>
           <button class="ccheckbutton stylesasbutton" id="cbutton${i}"></button>
           <p id ="ctarget${i}">${concert.name}</p>
           <p>   
@@ -37,12 +37,12 @@ const concertAPI = {
             ${concert.url}
           </p>
         </div>`
-      
-      } 
-      addButtonListeners("c"); 
-  }       
-       
-       /*
+
+    }
+    addButtonListeners("c");
+}
+
+/*
        else if (concert === searchInputs[3].query.includes(concert.name)) {
           concertTargetInsert.innerHTML += `
             <div class="concertdiv">
@@ -94,13 +94,6 @@ const concertAPI = {
         }
       }
     */
-   
-    
-  
-   
- 
-
- 
 
 
 
@@ -140,7 +133,14 @@ const concertAPI = {
 
 
 
-  /*
+
+
+
+
+
+
+
+/*
     
   // Function to update results
   function updateConcertResults(concerts) {

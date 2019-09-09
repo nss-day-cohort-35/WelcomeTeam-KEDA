@@ -1,38 +1,34 @@
+getParkData = function(query) { //get data
 
 
 
+    if (query === "") {
+        updateParkSearchResults([]);
 
-    getParkData = function(query) { //get data
-        
-    
+    } else if (query === "all" || query === "park" || query === "parks") {
 
-        if (query === "") {
-            updateParkSearchResults([]);
-       
-         } else if (query === "all" || query === "park" || query === "parks") {
+        searchInputs[0].query = "";
 
-            searchInputs[0].query = "";
-
-            fetch(`https://data.nashville.gov/resource/74d7-b74t.json`) //get data based of off search, aka parksearch bar's text content
+        fetch(`https://data.nashville.gov/resource/74d7-b74t.json`) //get data based of off search, aka parksearch bar's text content
             .then(entrieslist => entrieslist.json()) // get and parse data
-            .then(parsedentries =>{
+            .then(parsedentries => {
 
-            updateParkSearchResults(parsedentries); // send data off
+                updateParkSearchResults(parsedentries); // send data off
             });
 
-         } else {
+    } else {
 
-            fetch(`https://data.nashville.gov/resource/74d7-b74t.json`) //get data based of off search, aka parksearch bar's text content
+        fetch(`https://data.nashville.gov/resource/74d7-b74t.json`) //get data based of off search, aka parksearch bar's text content
             .then(entrieslist => entrieslist.json()) // get and parse data
-            .then(parsedentries =>{
+            .then(parsedentries => {
 
-            updateParkSearchResults(parsedentries); // send data off
+                updateParkSearchResults(parsedentries); // send data off
 
             });
 
-         }
-       
     }
+
+}
 
 
 
@@ -49,7 +45,7 @@ function updateParkSearchResults(idata) { // works with the park api, so this is
 
     let workinglist = [];
 
-    workinglist[0] = {park_name:"No park"} // i recomend you add a "no option" to the start of your list
+    workinglist[0] = { park_name: "No park" } // i recomend you add a "no option" to the start of your list
 
     for (let i = 0; i < idata.length; i++) {
 
@@ -60,7 +56,7 @@ function updateParkSearchResults(idata) { // works with the park api, so this is
     }
 
 
-
+    //class="pinline" for div
 
 
     for (let i = 0; i < workinglist.length; i++) { // loop through all results, creating html framework as we go
@@ -76,20 +72,10 @@ function updateParkSearchResults(idata) { // works with the park api, so this is
         `; // this adds unique ids to "ptargets" so that they can be easily targeted using for loops
         //make sure you have your unique letter in fornt of "target"
         // and be sure to get the name of what you want to display into and put it into the span tag.
-      
+
     }
 
-    recordListener("park_name","p"); 
+    recordListener("park_name", "p");
 
 
 }
-
-
-
-
-
-
-
-
-
-
