@@ -49,7 +49,7 @@ getMeetupData = function(query) { //get data
 }
 
 
-console.log("fecthing");
+
 
 
 
@@ -62,56 +62,46 @@ function updateMeetupSearchResults(idata) { // works with the park api, so this 
     
 
     meetuptargetinsert.innerHTML = ``;
-    //clear results in park section to make room for the loop inserting the new ones
+    //clear results in park section to make room for the loop inserting the new ones 
 
     meetuptargetinsert.innerHTML += `
-        <div class="inline">
-        <button class="mcheckbutton styleasbutton" id = "mbutton0"></button>
-        <p id = "mtarget0">No Meetup</p>
-        </div>
+    
+    <p class="meetup_name">
+    <span id = "mtarget0">No Meetup</span>
+    
+    </p>
+    
         `
 
     if (typeof idata.events != "undefined") {
     for (let i = 1; i < idata.events.length; i++) { // loop through all results, creating html framework as we go
         meetuptargetinsert.innerHTML += `
-        <div class="minline">
-        <button class="mcheckbutton styleasbutton" id = "mbutton${i}"></button>
-        <strong id = "mtarget${i}">${idata.events[i-1].name.text}</strong>
-        <p>${idata.events[i-1].summary}</p>
-        <a href="${idata.events[i-1].url}"><p>Web</p></a>
-        </div>
+        
+        <p class="meetup_name">
+        <span id = "mtarget${i}">${idata.events[i-1].name.text}</span>
+        <p>${idata.events[i-1].summary}
+        <a href="${idata.events[i-1].url}">Web</a></p>
+        </p>
+       
+       
         
         
-        `; // this adds unique ids to "pbuttons" and "ptargets" so that they can be easily targeted using for loops
-        //make sure you have your unique letter in fornt of "button", "checkbutton", and "target"
-        // and be sure to get the name of what you want to display into and put it into the p tag.
+        `; // this adds unique ids to "mtargets" so that they can be easily targeted using for loops
+        //make sure you have your unique letter in fornt of "target"
+        // and be sure to get the name of what you want to display into and put it into the span tag.
         
     }
 
-    addButtonListeners("m"); //move on to making functionality, change the letter to your unique letter, the first letter of your catagory
+    
 
 
 }
 
+recordListener("meetup_name","m");
+
 }
 
 
 
 
 
-/*
-
-https://www.eventbriteapi.com/v3/users/me/?token=7P4J2J4LJXEBIE5UBPBB
-
-https://www.eventbriteapi.com/v3/events/events?time_filter=current_future
-
-https://www.eventbriteapi.com/v3/events?time_filter=current_future
-
-
-//After got ids from Above, cycle through bellow and gett all "Music". (catagory.name === "Music")
-
-https://www.eventbriteapi.com/v3/events/{event_id}/?expand=category
-
-https://www.eventbriteapi.com/v3/events/{event_id}/?expand=category
-
-*/

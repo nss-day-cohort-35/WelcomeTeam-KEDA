@@ -40,8 +40,8 @@
     flex-direction: row;
     align-items: center;
     height: 2.5em;
-    width: 20em;
     padding: 0.5em;
+    
 }
 
 .styleasbutton {
@@ -52,16 +52,11 @@
 }
 
 h3, p, strong {
-    height: 1em;
+    
     padding: 0.5em;
 }
 
-.psearch {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    
-}
+
 
 .searchcontainer {
 
@@ -72,8 +67,9 @@ h3, p, strong {
 
 }
 
-.restaurant_name {
+.restaurant_name, .meetup_name, .park_name {
     font-weight: bold;
+    width: 100%;
 }
 
 
@@ -83,7 +79,7 @@ h3, p, strong {
    flex-wrap: wrap;
    flex-direction: column;
 }
-.restaurant_name_over {
+.restaurant_name_over, .meetup_name_over, .park_name_over {
     font-weight: bold;
     color: red;
     border: 1px dashed green;
@@ -91,7 +87,7 @@ h3, p, strong {
     background-color: pink;
 }
 
-.restaurant_name_chosen {
+.restaurant_name_chosen, .meetup_name_chosen, .park_name_chosen {
     border: 1px dashed green;
     border-radius: .4em;
     background-color: blueviolet;
