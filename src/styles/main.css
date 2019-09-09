@@ -1,55 +1,82 @@
-/*
-//
-*/
+html {
+    font-family: 'Crimson Text', serif;
+}
 
 
 /* Carousel Styling */
 
+.jumbotron {}
 
 
-/* Search Section Styling*/
-body {
-    background-color: beige;
-}
-
+/*/////////////////////// Search Section Styling ///////////////////*/
 
 .search_flex_container {
     display: flex;
     flex-flow: row;
-    height: 20%;
+    justify-content: space-between;
+    margin: 0 auto;
     border: black solid 1px;
+    background-color: #5A79A5;
 }
 
 .search_section {
     display: flex;
-    flex-grow: 1;
     flex-flow: column;
-    border: 1px solid black;
+    width: 100%;
     border-radius: .5em;
     margin: .9em;
-    background-color: rgb(180, 243, 180);
-} 
+    background-color: lightsteelblue;
+    /*background-color: rgb(180, 243, 180);*/
+}
+
 #section_result_image {
-float: right;
-height: 50%;
-width: 50%;
+    height: 500px;
+    width: 500px;
 }
 
 img {
- height: 60%;
- width: 100%;   
-
+    height: 500px;
+    width: 500px;
 }
 
 .search-item {
-    border: 1px solid black;
     border-radius: .3em;
+    width: 100%;
     margin: .5em;
     padding: .5em;
     background-color: lightsteelblue;
 }
 
+#searchHeader {
+    text-align: center;
+}
+
+input[type=text],
+#search-button {
+    display: block;
+    width: 80%;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('images/search-icon.png');
+    background-repeat: no-repeat;
+    margin: .5em auto;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 90%;
+}
+
+
+/*/////////////////////// Result Section ///////////////////*/
+
 .results-section {
+    display: flex;
+    flex-direction: row;
     border: 1px solid black;
     border-radius: .5em;
     margin: .9em;
@@ -79,7 +106,9 @@ img {
     background-image: url("../images/checkmark.png");
 }
 
-h3, p, strong {
+h3,
+p,
+strong {
     height: 1em;
     padding: 0.5em;
 }
@@ -88,16 +117,13 @@ h3, p, strong {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    
 }
 
 .searchcontainer {
-
     display: flex;
     /*flex-wrap: wrap;
     flex-direction: row;*/
     flex-flow: column;
-
 }
 
 .restaurant_name {
@@ -106,11 +132,13 @@ h3, p, strong {
 
 
 /* Concert Container*/
+
 #concertresults {
-   display: flex;
-   flex-wrap: wrap;
-   flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
+
 .restaurant_name_over {
     font-weight: bold;
     color: red;
@@ -125,7 +153,6 @@ h3, p, strong {
     background-color: blueviolet;
 }
 
-
 .minline {
     display: flex;
     flex-direction: row;
@@ -135,7 +162,7 @@ h3, p, strong {
 
 .inline {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 0.5em;
     align-items: center;
 }

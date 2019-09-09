@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Welcome to Nashville</title>
     <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text:600,700&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
@@ -51,35 +52,31 @@
 
   <div class="search_flex_container">
     <section class="search_section">
-        <h2 class="search_item">Search for stuff to do today</h2>
+        <h2 id="searchHeader"class="search_item">Search Nashville</h2>
 
         <!-- parks input section -->
         <fieldset class="search_item">
-            <label class="search_label">Parks by feature: </label>
-            <input class="search_input" id="parks_input" type="text" name="parks" value="parks by feature">
+            <input class="search_input" id="parks_input" type="text" placeholder="Parks by feature" name="parks" value="Parks by feature">
         </fieldset>
 
         <!-- restaurants input section -->
         <fieldset class="search_item">
-                <label class="search_label">Restaurants by food type: </label>
-                <input class="search_input" id="restaurants_input" type="text" name="restaurants" value="restaurants by food type">
+                <input class="search_input" id="restaurants_input" type="text" placeholder="Restaurants by food type" name="restaurants" value="restaurants by food type">
             </fieldset>
 
         <!-- meetups input section -->
         <fieldset class="search_item">
-                <label class="search_label">Meetups by topic: </label>
-                <input class="search_input" id="meetups_input" type="text" name="meetups" value="meetups by topic">
+                <input class="search_input" id="meetups_input" type="text" placeholder="Meetups by topic" name="meetups" value="meetups by topic">
             </fieldset>
 
         <!-- concerts input section -->
         <fieldset class="search_item">
-                <label class="search_label">Concerts by genre: </label>
-                <input class="search_input" id="concerts_input" type="text" name="concerts" value="concerts by genre">
+                <input class="search_input" id="concerts_input" type="text" placeholder="Concerts by genre" name="concerts" value="concerts by genre">
         </fieldset>
 
         <!-- Submit button section -->
         <fieldset class="search-item">
-                <button class="search-input" id="search-button">Search</button>
+            <button class="search-input" id="search-button">Search</button>
         </fieldset>
       </section>  
 
