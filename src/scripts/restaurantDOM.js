@@ -13,36 +13,33 @@ function makeDomElement( restaurant, index ) {
 //<button class="rcheckbutton styleasbutton" id = "rbutton${index}"></button>
 
 //
-function recordListener() {
+function recordListener( section,letter ) {
 
-    recordList = document.querySelectorAll( '.restaurant_name' );
-
-    //console.log( "recordList: ",recordList );
+    recordList = document.querySelectorAll( `.${section}` );
 
     for( let i = 0; i < recordList.length; i++ ){
-        //console.log( "tagName: ", recordList[i].tagName );
 
         recordList[i].addEventListener( "mouseover", event => {
-            if( event.target.className != "restaurant_name_chosen" ){
-                if( event.target.tagName === 'P' ){ event.target.className = "restaurant_name_over"; } 
+            if( event.target.className != `${section}_chosen` ){
+                if( event.target.tagName === 'P' ){ event.target.className = `${section}_over`; } 
             }
         })
         recordList[i].addEventListener( "mouseout", event => {
-            if( event.target.className != "restaurant_name_chosen" ){
-                if( event.target.tagName === 'P' ){ event.target.className = "restaurant_name"; }
+            if( event.target.className != `${section}_chosen` ){
+                if( event.target.tagName === 'P' ){ event.target.className = `${section}`; }
             }
         })
         recordList[i].addEventListener( "click", event => {
-            chosenRecord = document.querySelectorAll( '.restaurant_name_chosen' );
+            chosenRecord = document.querySelectorAll( `.${section}_chosen` );
             if( chosenRecord.length ){
                 for( let i = 0; i < chosenRecord.length; i++ ){
-                    chosenRecord[i].className = "restaurant_name";
+                    chosenRecord[i].className = `${section}`;
                 }
             }
-            if( event.target.tagName === 'P' ){ event.target.className = "restaurant_name_chosen"; }
+            if( event.target.tagName === 'P' ){ event.target.className = `${section}_chosen`; }
 
             const restaurantName = event.target.getElementsByTagName( 'SPAN' );
-            document.querySelector(`#rittinerary`).innerHTML = restaurantName[0].innerHTML;
+            document.querySelector(`#${letter}ittinerary`).innerHTML = restaurantName[0].innerHTML;
         })
     }        
 }
@@ -51,6 +48,12 @@ function recordListener() {
 function buildDomSection( restaurantSearshResult ) {
     const restaurantsSection = document.querySelector('#restaurantresults');
     restaurantsSection.innerHTML = '';
+
+
+
+
+
+
 
     for( let i = 0; i < restaurantSearshResult.length; i++ ) {
 
@@ -61,5 +64,5 @@ function buildDomSection( restaurantSearshResult ) {
     }
 
     //addButtonListeners("r");
-    recordListener();
+    recordListener( 'restaurant_name','r' );
 }
