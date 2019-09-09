@@ -40,10 +40,39 @@ function addButtonListeners(uniqueletter) { // add button functionality modularl
 
 }
 
+//
+function putIttineraryInJSON( ittineraryList ) {
+
+    let dictstring = JSON.stringify( ittineraryList );
+    let fs = require('fs');
+    fs.writeFile("thing.json", dictstring);
+
+}
+
+
+function itineraryItem( id, park, restaurant, meetup, concert ){
+
+    this.id = id,
+    this.park = park,
+    this.restaurant = restaurant,
+    this.meetup = meetup,
+    this.concert = consert
+}
+
+
+
+
+
 function updateIttinerary(catagory, newtext) { // To update the itinerary, can be used for all catagories 
 
 //make sure you give the final output feilds an id of "(your unqique letter here)ittinerary" 
 document.querySelector(`#${catagory}ittinerary`).innerHTML = newtext; //selects the id of whatever catagory is, and puts whatever newtext is inside of that.
 
+
+let itineraryList = [];
+
+itineraryList[0] = new itineraryItem( 1, "Centennial Park", "Prince’s Hot Chicken", "Meeple Mountain Board Game Night", "John Mellencamp at the Ryman" );
+
+putIttineraryInJSON( itineraryList );
 
 }
