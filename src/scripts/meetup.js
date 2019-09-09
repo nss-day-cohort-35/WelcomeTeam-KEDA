@@ -65,24 +65,25 @@ function updateMeetupSearchResults(idata) { // works with the park api, so this 
     //clear results in park section to make room for the loop inserting the new ones 
 
     meetuptargetinsert.innerHTML += `
-    <div class="minline">
+    
     <p class="meetup_name">
     <span id = "mtarget0">No Meetup</span>
     
     </p>
-    </div>
+    
         `
 
     if (typeof idata.events != "undefined") {
     for (let i = 1; i < idata.events.length; i++) { // loop through all results, creating html framework as we go
         meetuptargetinsert.innerHTML += `
-        <div class="minline">
+        
         <p class="meetup_name">
         <span id = "mtarget${i}">${idata.events[i-1].name.text}</span>
-        </p>
         <p>${idata.events[i-1].summary}
         <a href="${idata.events[i-1].url}">Web</a></p>
-        </div>
+        </p>
+       
+       
         
         
         `; // this adds unique ids to "mtargets" so that they can be easily targeted using for loops

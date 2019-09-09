@@ -40,8 +40,8 @@
     flex-direction: row;
     align-items: center;
     height: 2.5em;
-    width: 20em;
     padding: 0.5em;
+    
 }
 
 .styleasbutton {
@@ -56,12 +56,7 @@ h3, p, strong {
     padding: 0.5em;
 }
 
-.psearch {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    
-}
+
 
 .searchcontainer {
 
@@ -74,6 +69,7 @@ h3, p, strong {
 
 .restaurant_name, .meetup_name, .park_name {
     font-weight: bold;
+    width: 100%;
 }
 
 

@@ -65,12 +65,12 @@ function updateParkSearchResults(idata) { // works with the park api, so this is
 
     for (let i = 0; i < workinglist.length; i++) { // loop through all results, creating html framework as we go
         parktargetinsert.innerHTML += `
-        <div class="pinline">
+        
         <p class="park_name">
         <span id = "ptarget${i}">${workinglist[i].park_name}</span>
         </p>
-        <p></p>
-        </div>
+        
+     
         
         
         `; // this adds unique ids to "ptargets" so that they can be easily targeted using for loops
