@@ -8,21 +8,37 @@
 
 
 /* Search Section Styling*/
+body {
+    background-color: beige;
+}
+
 
 .search_flex_container {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row;
+    height: 20%;
+    border: black solid 1px;
 }
 
 .search_section {
     display: flex;
+    flex-grow: 1;
     flex-flow: column;
-
     border: 1px solid black;
     border-radius: .5em;
     margin: .9em;
-
     background-color: rgb(180, 243, 180);
+} 
+#section_result_image {
+float: right;
+height: 50%;
+width: 50%;
+}
+
+img {
+ height: 60%;
+ width: 100%;   
+
 }
 
 .search-item {
