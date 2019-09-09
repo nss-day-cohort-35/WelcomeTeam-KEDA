@@ -26,7 +26,7 @@ html {
     border-radius: .5em;
     margin: .9em;
     background-color: lightsteelblue;
-    /*background-color: rgb(180, 243, 180);*/
+    background-color: rgb(180, 243, 180)
 }
 
 #section_result_image {
@@ -41,13 +41,15 @@ img {
 
 .search-item {
     border-radius: .3em;
-    width: 100%;
     margin: .5em;
     padding: .5em;
     background-color: lightsteelblue;
 }
 
-#searchHeader {
+#searchHeader,
+#resultHeader,
+#itineraryHeader {
+    display: inline-block;
     text-align: center;
 }
 
@@ -74,20 +76,40 @@ input[type=text]:focus {
 
 /*/////////////////////// Result Section ///////////////////*/
 
+.result_flex_container {
+    display: flex;
+    flex-flow: column;
+    margin: 0 auto;
+    border: black solid 1px;
+    background-color: #CE0000;
+}
+
 .results-section {
     display: flex;
-    flex-direction: row;
-    border: 1px solid black;
+    justify-content: left;
+    flex-direction: column;
     border-radius: .5em;
     margin: .9em;
-    background-color: rgb(177, 255, 255)
+    background-color: lightsteelblue;
+}
+
+.result-item {
+    display: flex;
+    flex grow: 1;
+    margin: .5em auto;
+}
+
+.itinerary_flex_container {
+    background-color: rgb(180, 243, 180);
 }
 
 .itinerary-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
     border: 1px solid black;
     border-radius: .5em;
     margin: .9em;
-    background-color: azure;
 }
 
 .pinline {
@@ -160,9 +182,11 @@ strong {
     align-items: center;
 }
 
+
+/*
 .inline {
     display: flex;
     flex-direction: column;
     padding: 0.5em;
     align-items: center;
-}
+} */
