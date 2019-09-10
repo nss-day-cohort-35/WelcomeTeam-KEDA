@@ -50,15 +50,15 @@ document.querySelector('#search-button').addEventListener( "click", event => {
         .then( cuisineNumber => {
             let restaurantList = [];
             if( cuisineNumber != -1 ) {
-                console.log( "input cuisine number: ", cuisineNumber );
+                //console.log( "input cuisine number: ", cuisineNumber );
                 restaurantList = getRestaurantData( cuisineNumber );
             } else {
-                console.log( searchInputs[1].query, " cuisine is not presented in Nashville restaurants." );
+                //console.log( searchInputs[1].query, " cuisine is not presented in Nashville restaurants." );
             }
             return restaurantList;
         })
         .then( restaurantList => {
-            console.log( "restaurantList: ", restaurantList );
+            //console.log( "restaurantList: ", restaurantList );
             if( restaurantList.length ) {
                 buildDomSection( restaurantList,searchInputs[1] );
             }
@@ -72,4 +72,4 @@ document.querySelector('#search-button').addEventListener( "click", event => {
 
 })
 
-console.log( searchInputs );
+//console.log( searchInputs );

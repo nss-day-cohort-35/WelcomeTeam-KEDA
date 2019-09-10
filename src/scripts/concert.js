@@ -29,7 +29,7 @@ function updateConcertResults(concert) { // works with the park api, so this is 
 
     for (let i = 0; i < concertEvent.length; i++) {
         let concert = concertEvent[i];
-        console.log(concert);
+        //console.log(concert);
 
         concertTargetInsert.innerHTML += `
         <div>

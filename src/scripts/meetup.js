@@ -7,7 +7,7 @@ getMeetupData = function( inputs ) { //get data
     let query = inputs.query;
 
 
-    console.log("getting data");
+    //console.log("getting data");
 
     if (query === "") {
         //updateMeetupSearchResults([]);
