@@ -134,12 +134,12 @@ strong {
     flex-direction: column;
 }
 
-.restaurant_panel {
+.park_panel, .restaurant_panel, .meetup_panel, .concert_panel {
     font-weight: bold;
     font-size: 1.5em;
 }
 
-.restaurant_panel_over {
+.park_panel_over, .restaurant_panel_over, .meetup_panel_over, .concert_panel_over {
     font-weight: bold;
     font-size: 1.5em;
     color: red;
@@ -151,14 +151,16 @@ strong {
 
 .restaurant_name,
 .meetup_name,
-.park_name {
+.park_name,
+.concert_name {
     font-weight: bold;
     width: 100%;
 }
 
 .restaurant_name_over,
 .meetup_name_over,
-.park_name_over {
+.park_name_over,
+.concert_name_over {
     font-weight: bold;
     color: red;
     border: 1px dashed green;
@@ -168,7 +170,8 @@ strong {
 
 .restaurant_name_chosen,
 .meetup_name_chosen,
-.park_name_chosen {
+.park_name_chosen,
+.concert_name_chosen {
     border: 1px dashed green;
     border-radius: .4em;
     background-color: blueviolet;

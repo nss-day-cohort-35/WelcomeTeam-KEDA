@@ -1,15 +1,19 @@
 let concertTargetInsert = document.querySelector("#concertresults");
 
 const concertAPI = {
-    getConcertData(country) {
+    getConcertData( inputs ) {
         let concertInput = document.querySelector('#concerts_input').value
         if (concertInput === '' || concertInput === 'concerts by genre') {
             concertTargetInsert.innerHTML = 'No search Requested'
         } else {
-            return fetch(`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&keyword=${concertInput}&dmaId=343&apikey=b2mgLaafqqPj3qedr8Zo6jklYkDTEYkb&classificationName=${country}`)
+            return fetch(`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&keyword=${concertInput}&dmaId=343&apikey=b2mgLaafqqPj3qedr8Zo6jklYkDTEYkb&classificationName=${inputs.query}`)
                 .then(res => res.json())
                 .then(parsedMain => {
-                    updateConcertResults(parsedMain)
+                    //updateConcertResults(parsedMain)
+                    //
+                    let concertEvent = parsedMain._embedded.events;
+                    buildDomSection( concertEvent, inputs )
+
                 })
         }
     }

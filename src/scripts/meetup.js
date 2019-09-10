@@ -2,12 +2,15 @@
 
 
 
-getMeetupData = function(query) { //get data
+getMeetupData = function( inputs ) { //get data
         
+    let query = inputs.query;
+
+
     console.log("getting data");
 
     if (query === "") {
-        updateMeetupSearchResults([]);
+        //updateMeetupSearchResults([]);
         
    
      } else if (query === "all" || query === "park" || query === "parks") {
@@ -22,7 +25,9 @@ getMeetupData = function(query) { //get data
          .then(entrieslist => entrieslist.json()) // get and parse data
          .then(parsedentries =>{
            
-            updateMeetupSearchResults(parsedentries);
+            //updateMeetupSearchResults(parsedentries);
+            buildDomSection( parsedentries, inputs )
+
             
         
         
@@ -38,7 +43,9 @@ getMeetupData = function(query) { //get data
     .then(entrieslist => entrieslist.json()) // get and parse data
     .then(parsedentries =>{
         
-        updateMeetupSearchResults(parsedentries);
+        //updateMeetupSearchResults(parsedentries);
+        buildDomSection( parsedentries, inputs )
+
         
 
 
@@ -97,7 +104,7 @@ function updateMeetupSearchResults(idata) { // works with the park api, so this 
 
 }
 
-recordListener("meetup_name","m",searchInputs[2]);
+recordListener( searchInputs[2] );
 
 }
 
