@@ -3,6 +3,15 @@
 */
 
 //
+function makePanel( title, action ) {
+    return `
+        <p class="restaurant_panel">
+            <span>${title} search results - ${action}</span>
+        </p>
+    `
+}
+
+//
 function makeDomElement( restaurant, index ) {
     return `
         <p class="restaurant_name">        
@@ -10,14 +19,22 @@ function makeDomElement( restaurant, index ) {
         </p>
     `
 }
-//<button class="rcheckbutton styleasbutton" id = "rbutton${index}"></button>
 
 //
-function recordListener( section,letter ) {
+function createDomPanel( section, title, action ){
+    const restaurantPanel = document.createElement( 'div' );
+    restaurantPanel.innerHTML = makePanel( title, action );
+    section.appendChild( restaurantPanel );
+}
 
-    recordList = document.querySelectorAll( `.${section}` );
-    console.log("RecordListener:");
-    console.log(recordList);
+//
+function recordListener( section, letter, inputs ) {
+
+    const recordList = document.querySelectorAll( `.${section}` );
+
+    if( inputs.chosen != -1 ){
+        recordList[ inputs.chosen ].className =  `${section}_chosen`;
+    }
 
     for( let i = 0; i < recordList.length; i++ ){
 
@@ -32,42 +49,96 @@ function recordListener( section,letter ) {
             }
         })
         recordList[i].addEventListener( "click", event => {
-            chosenRecord = document.querySelectorAll( `.${section}_chosen` );
+            let chosenRecord = document.querySelectorAll( `.${section}_chosen` );
             if( chosenRecord.length ){
                 for( let i = 0; i < chosenRecord.length; i++ ){
                     chosenRecord[i].className = `${section}`;
                 }
             }
-            if( event.target.tagName === 'P' ){ event.target.className = `${section}_chosen`; }
+
+            if( event.target.tagName === 'P' ){ 
+                event.target.className = `${section}_chosen`;
+                inputs.chosen = i;
+             }
 
             const restaurantName = event.target.getElementsByTagName( 'SPAN' );
-
-            console.log(restaurantName);
-
             document.querySelector(`#${letter}ittinerary`).innerHTML = restaurantName[0].innerHTML;
         })
     }        
 }
 
 //
-function buildDomSection( restaurantSearshResult ) {
-    const restaurantsSection = document.querySelector('#restaurantresults');
+function panelListener( results, section, panel, title, inputs ) {
+
+    let panelElement = document.querySelector( `.${panel}` );
+
+    panelElement.addEventListener( "mouseover", event => {
+        if( event.target.tagName == 'P' ){ 
+            if( event.target.className.includes('panel_show') ){
+                event.target.className = `${panel}_over panel_show`;
+            } else {
+                event.target.className = `${panel}_over`;
+            }
+        }
+    })
+
+    panelElement.addEventListener( "mouseout", event => {
+        if( event.target.tagName == 'P' ){ 
+            if( event.target.className.includes('panel_show') ){
+                event.target.className = `${panel} panel_show`;
+            } else {
+                event.target.className = `${panel}`;
+            }
+        }
+    })
+    
+    panelElement.addEventListener( "click", event => {
+
+        if( event.target.tagName === 'P' ) {
+            if( event.target.className.includes('panel_show') ) {
+                event.target.className = `${panel}`;
+
+                let spanElement = event.target.getElementsByTagName( 'span' );
+                spanElement[0].textContent = `${title} search results - SHOW`;
+
+                let resultsElement = document.querySelectorAll( ".restaurantresults" );
+                for( let i = 0; i < resultsElement.length; i++ ){
+                    resultsElement[i].parentNode.removeChild( resultsElement[i] );
+                }
+            } else {
+                event.target.className += ' panel_show';
+
+                let spanElement = event.target.getElementsByTagName( 'span' );
+                spanElement[0].textContent = `${title} search results - HIDE`;
+
+                const resultsElement = document.createElement( 'div' );
+                resultsElement.className = "restaurantresults";
+                resultsElement.className += " searchcontainer";
+
+                for( let i = 0; i < results.length; i++ ) {
+                    const restaurantElement = document.createElement('div');
+                    restaurantElement.innerHTML = makeDomElement( results[i], i );
+
+                    resultsElement.appendChild( restaurantElement );
+                }
+
+                section.appendChild( resultsElement );
+
+                recordListener( 'restaurant_name', 'r', inputs );
+            }
+        }   
+    })
+}
+
+//
+function buildDomSection( restaurantSearshResult,inputs ) {
+
+    let restaurantsSection = document.querySelector('.restaurant_data');
     restaurantsSection.innerHTML = '';
 
+    createDomPanel( restaurantsSection, 'Restaurant', 'SHOW' );
 
-
-
-
-
-
-    for( let i = 0; i < restaurantSearshResult.length; i++ ) {
-
-        const restaurantElement = document.createElement('div');
-        restaurantElement.innerHTML = makeDomElement( restaurantSearshResult[i], i );
-
-        restaurantsSection.appendChild( restaurantElement );
-    }
-
+    panelListener( restaurantSearshResult, restaurantsSection, 'restaurant_panel', 'Restaurant', inputs );
+ 
     //addButtonListeners("r");
-    recordListener( 'restaurant_name','r' );
 }

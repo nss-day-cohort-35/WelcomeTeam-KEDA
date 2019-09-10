@@ -125,13 +125,6 @@ strong {
     flex-flow: column;
 }
 
-.restaurant_name,
-.meetup_name,
-.park_name {
-    font-weight: bold;
-    width: 100%;
-}
-
 
 /* Concert Container*/
 
@@ -139,6 +132,28 @@ strong {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+}
+
+.restaurant_panel {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.restaurant_panel_over {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: red;
+    border: 1px dashed green;
+    border-radius: .4em;
+    background-color: pink;
+}
+
+
+.restaurant_name,
+.meetup_name,
+.park_name {
+    font-weight: bold;
+    width: 100%;
 }
 
 .restaurant_name_over,

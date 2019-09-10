@@ -75,7 +75,7 @@ function updateParkSearchResults(idata) { // works with the park api, so this is
 
     }
 
-    recordListener("park_name", "p");
+    recordListener("park_name", "p",searchInputs[0]);
 
 
 }

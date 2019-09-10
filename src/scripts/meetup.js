@@ -97,7 +97,7 @@ function updateMeetupSearchResults(idata) { // works with the park api, so this 
 
 }
 
-recordListener("meetup_name","m");
+recordListener("meetup_name","m",searchInputs[2]);
 
 }
 

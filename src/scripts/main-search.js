@@ -3,18 +3,19 @@
 */
 
 
-function searchItem ( input,initial,query ) {
+function searchItem ( input,initial,query,chosen ) {
     this.input = input;
     this.initial = initial;
     this.query = query;
+    this.chosen = chosen;
 }
 
 let searchInputs = [];
 
-searchInputs[0] = new searchItem( "parks_input","parks by feature","" )
-searchInputs[1] = new searchItem( "restaurants_input","restaurants by food type","" )
-searchInputs[2] = new searchItem( "meetups_input","meetups by topic","" ) 
-searchInputs[3] = new searchItem( "concerts_input","concerts by genre","" ) 
+searchInputs[0] = new searchItem( "parks_input","parks by feature","",-1 )
+searchInputs[1] = new searchItem( "restaurants_input","restaurants by food type","",-1 )
+searchInputs[2] = new searchItem( "meetups_input","meetups by topic","",-1 ) 
+searchInputs[3] = new searchItem( "concerts_input","concerts by genre","",-1 ) 
 
 document.querySelector('#search-button').addEventListener( "click", event => {
     for( let i = 0; i < searchInputs.length; i++ ) { // loop through all inputs and put their values in the respective searchinput
@@ -42,7 +43,7 @@ document.querySelector('#search-button').addEventListener( "click", event => {
         .then( restaurantList => {
             console.log( "restaurantList: ", restaurantList );
             if( restaurantList.length ) {
-                buildDomSection( restaurantList );
+                buildDomSection( restaurantList,searchInputs[1] );
             }
         })           
     }
