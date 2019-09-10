@@ -1,9 +1,11 @@
-getParkData = function(query) { //get data
+getParkData = function( inputs ) { //get data
 
-
+    let query = inputs.query;
 
     if (query === "") {
-        updateParkSearchResults([]);
+        //updateParkSearchResults([]);
+        //buildDomSection( [], inputs )
+
 
     } else if (query === "all" || query === "park" || query === "parks") {
 
@@ -13,7 +15,9 @@ getParkData = function(query) { //get data
             .then(entrieslist => entrieslist.json()) // get and parse data
             .then(parsedentries => {
 
-                updateParkSearchResults(parsedentries); // send data off
+                //updateParkSearchResults(parsedentries); // send data off
+                buildDomSection( parsedentries, inputs )
+
             });
 
     } else {
@@ -22,7 +26,8 @@ getParkData = function(query) { //get data
             .then(entrieslist => entrieslist.json()) // get and parse data
             .then(parsedentries => {
 
-                updateParkSearchResults(parsedentries); // send data off
+                //updateParkSearchResults(parsedentries); // send data off
+                buildDomSection( parsedentries, inputs )
 
             });
 
@@ -75,7 +80,7 @@ function updateParkSearchResults(idata) { // works with the park api, so this is
 
     }
 
-    recordListener("park_name", "p");
+    recordListener( searchInputs[0] );
 
 
 }
