@@ -15,7 +15,7 @@ getMeetupData = function( inputs ) { //get data
    
      } else if (query === "all" || query === "park" || query === "parks") {
 
-        searchInputs[2].query = "";
+        //searchInputs[2].query = "";
 
         fetch(`https://www.eventbriteapi.com/v3/events/search/?q=${query}&location.address=nashville&token=7P4J2J4LJXEBIE5UBPBB`, {
             "headers": {
@@ -42,6 +42,8 @@ getMeetupData = function( inputs ) { //get data
     })//get data based of off search, aka parksearch bar's text content
     .then(entrieslist => entrieslist.json()) // get and parse data
     .then(parsedentries =>{
+
+        //console.log("parsedentries", parsedentries);
         
         //updateMeetupSearchResults(parsedentries);
         buildDomSection( parsedentries, inputs )

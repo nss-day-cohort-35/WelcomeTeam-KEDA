@@ -28,14 +28,26 @@ function makeDomElement( inputs, restaurant, index ) {
         </p>
     `
 }
-
+/*
+    if (typeof idata.events != "undefined") {
+    for (let i = 1; i < idata.events.length; i++) { // loop through all results, creating html framework as we go
+        meetuptargetinsert.innerHTML += `
+        
+        <p class="meetup_name">
+        <span id = "mtarget${i}">${idata.events[i-1].name.text}</span>
+        <p>${idata.events[i-1].summary}
+        <a href="${idata.events[i-1].url}">Web</a></p>
+        </p>
+*/
 //
-function makeMeetupElement(inputs, events, i ) {
+function makeMeetupElement( inputs, events, i ) {
+    //console.log( "events", events );
+
     return `
         <p class="${inputs.name_class}">
-        <span id = "${inputs.letter}target${i}">${events[i-1].name.text}</span>
-        <p>${events[i-1].summary}
-        <a href="${events[i-1].url}">Web</a></p>
+        <span id = "${inputs.letter}target${i}">${events.name.text}</span>
+        ${events.summary}
+        <a href="${events.url}">Web</a>
         </p>
     `
 }
@@ -152,10 +164,12 @@ function panelListener( results, section, inputs ) {
                     //
                     switch( inputs.letter ) {
                         case 'p': { restaurantElement.innerHTML = makeParkElement( inputs, results[i], i ); }
-                          break;
+                        break;
                         case 'r': { restaurantElement.innerHTML = makeDomElement( inputs, results[i], i ); }
                         break;
-                        case 'm': { restaurantElement.innerHTML = makeMeetupElement( inputs, results.events[i+1], i+1 ); }
+                        case 'm': { 
+                            //console.log( "results.events[i]", results[i] );
+                            restaurantElement.innerHTML = makeMeetupElement( inputs, results[i], i ); }
                         break;
                         case 'c': { restaurantElement.innerHTML = makeConcertElement( inputs, results[i], i ); }
                         break;
@@ -178,12 +192,21 @@ function panelListener( results, section, inputs ) {
 //
 function buildDomSection( restaurantSearshResult, inputs ) {
 
+    //console.log( "restaurantSearshResult", restaurantSearshResult );
+
     let restaurantsSection = document.querySelector(`.${inputs.section_class}`);
     restaurantsSection.innerHTML = '';
 
-    createDomPanel( restaurantsSection, inputs );
+    if( inputs.letter === 'm' ) {
 
-    panelListener( restaurantSearshResult, restaurantsSection, inputs );
- 
+        createDomPanel( restaurantsSection, inputs );
+        panelListener( restaurantSearshResult.events, restaurantsSection, inputs );
+
+
+    } else {
+        createDomPanel( restaurantsSection, inputs );
+        panelListener( restaurantSearshResult, restaurantsSection, inputs );
+
+    }
     //addButtonListeners("r");
 }

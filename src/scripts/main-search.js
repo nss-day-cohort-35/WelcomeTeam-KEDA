@@ -30,7 +30,7 @@ let searchInputs = [];
 searchInputs[0] = new searchItem( "parks_input","parks by feature","",-1,"park_data","park_panel","park_name","parkresults",'p',"Park","SHOW" )
 searchInputs[1] = new searchItem( "restaurants_input","restaurants by food type","",-1,"restaurant_data","restaurant_panel","restaurant_name","restaurantresults",'r',"Restaurant","SHOW" )
 searchInputs[2] = new searchItem( "meetups_input","meetups by topic","",-1,"meetup_data","meetup_panel","meetup_name","meetupresults",'m',"Meetup","SHOW" ) 
-searchInputs[3] = new searchItem( "concerts_input","concerts by genre","",-1,"concert_data","concert_panel","concert_name","consertresults",'c',"Concert","SHOW" ) 
+searchInputs[3] = new searchItem( "concerts_input","concerts by genre","",-1,"concert_data","concert_panel","concert_name","concertresults",'c',"Concert","SHOW" ) 
 
 document.querySelector('#search-button').addEventListener( "click", event => {
     for( let i = 0; i < searchInputs.length; i++ ) { // loop through all inputs and put their values in the respective searchinput
